@@ -62,7 +62,7 @@ function App() {
           <button className="awayButtons__fieldGoal" onClick={()=> setAwayCount(awayCount + 3)}>Away Field Goal</button>
         </div>
         <div>
-          {/* bottom row test buttons           */}
+          {/* bottom row test button           */}
           <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown - currentDown+1)}>First Down</button>
           <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown + 1)}>Advance Down</button>
           <button className="homeButtons__touchdown"onClick={()=> advanceQuarter(currentQuarter - currentQuarter+1)}>Quarter Reset</button>
