@@ -60,22 +60,22 @@ function App() {
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={()=> setAwayCount(awayCount + 7)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={()=> setAwayCount(awayCount + 3)}>Away Field Goal</button>
-        </div>
-        <div>
+        {/* </div>
+        <div> */}
           {/* bottom row test button           */}
           <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown - currentDown+1)}>First Down</button>
           <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown + 1)}>Advance Down</button>
           <button className="homeButtons__touchdown"onClick={()=> advanceQuarter(currentQuarter - currentQuarter+1)}>Quarter Reset</button>
           <button className="homeButtons__touchdown"onClick={()=> advanceQuarter(currentQuarter + 1)}>Next Quarter</button>
-        </div>
-        <div>
-          <span>  
-            <button onClick={()=> advanceYards2go(yards2go + 1)}>+</button>
-            <p> 2 Go</p>
-            <button onClick={()=> advanceYards2go(yards2go - 1)}>-</button>
+        {/* </div>
+        <div className="homeButtons"> */}
+            <button className="homeButtons__touchdown" onClick={()=> advanceYards2go(yards2go - 1)}>To Go -</button>
+            <button className="homeButtons__touchdown" onClick={()=> advanceYards2go(yards2go + 1)}>To Go +</button>
+            {/* <p> 2 Go</p> */}
+            
 
 
-          </span>
+          
           
           </div> 
       </section>
