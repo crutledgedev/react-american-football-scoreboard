@@ -6,11 +6,48 @@ import "./App.css";
 function App() {
   const [homeCount, setHomeCount] = useState(0);
   const [awayCount, setAwayCount] = useState(0);
-  const [currentDown, advanceDown] = useState(1);
-  const [currentQuarter, advanceQuarter] = useState(1);
+  const [currentDown, setAdvanceDown] = useState(1);
+  const [currentQuarter, setAdvanceQuarter] = useState(1);
   const [yards2go, advanceYards2go] = useState(10);
   // console.log(homeCount);
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+  const handleHomeTouchDown = () => {
+    setHomeCount(homeCount + 7)
+  };
+
+  const handleHomeFieldGoal = () => {
+    setHomeCount(homeCount + 3)
+  };
+
+  const handleAdvanceDown = () => {
+    if(currentDown === 4){
+      setAdvanceDown(currentDown - currentDown + 1)
+    } else {setAdvanceDown(currentDown + 1)}
+  };
+
+  const handleAdvanceQuarter = () => {
+    if(currentQuarter === 4){
+      setAdvanceQuarter(currentQuarter - currentQuarter + 1)
+    } 
+    else 
+      {setAdvanceQuarter(currentQuarter + 1)}
+
+  }
+  const handleAwayTouchDown = () => {
+    setAwayCount(awayCount + 7)
+  };
+
+  const handleAwayFieldGoal = () => {
+    setAwayCount(awayCount + 3)
+  };
+
+  const handleAdd2go = () => {
+    advanceYards2go(yards2go + 1)
+  }
+
+  const handleSub2go = () => {
+    advanceYards2go(yards2go - 1)
+  }
 
   return (
     <div className="container">
@@ -18,9 +55,6 @@ function App() {
         <div className="topRow">
           <div className="home">
             <h2 className="home__name">Lions</h2>
-
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
             <div className="home__score">{ homeCount}</div>
           </div>
           <div className="timer">15:00</div>
@@ -29,20 +63,18 @@ function App() {
             <div className="away__score">{ awayCount }</div>
           </div>
         </div>
-        {/* <BottomRow /> */}
-        {/* insert bottom row here */}
         <div className="bottomRow">
 
           <div className="down">
             <h3 className="down__title">Down</h3>
-            <div className="down__value">{currentDown}</div>
+            <div className="down__value">{ currentDown }</div>
           </div>
           <div className="toGo">
             <h3 className="toGo__title">To Go</h3>
-            <div className="toGo__value">{yards2go}</div>
+            <div className="toGo__value">{ yards2go }</div>
           </div>
           <div className="ballOn">
-            <h3 className="ballOn__title">Ball on</h3>
+            <h3 className="ballOn__title">1st on</h3>
             <div className="ballOn__value">21</div>
           </div>
           <div className="quarter">
@@ -51,33 +83,23 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick={() => setHomeCount(homeCount + 7)}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal" onClick = {() => setHomeCount(homeCount + 3)}>Home Field Goal</button>
+      <section className="buttons">      
+          <div>
+          <button className="allButtons" onClick={handleHomeTouchDown}>Home Touchdown</button>
+          <button className="allButtons" onClick = {handleHomeFieldGoal}>Home Field Goal</button>
         </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick={()=> setAwayCount(awayCount + 7)}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick={()=> setAwayCount(awayCount + 3)}>Away Field Goal</button>
-        {/* </div>
-        <div> */}
-          {/* bottom row test button           */}
-          <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown - currentDown+1)}>First Down</button>
-          <button className="homeButtons__touchdown"onClick={()=> advanceDown(currentDown + 1)}>Advance Down</button>
-          <button className="homeButtons__touchdown"onClick={()=> advanceQuarter(currentQuarter - currentQuarter+1)}>Quarter Reset</button>
-          <button className="homeButtons__touchdown"onClick={()=> advanceQuarter(currentQuarter + 1)}>Next Quarter</button>
-        {/* </div>
-        <div className="homeButtons"> */}
-            <button className="homeButtons__touchdown" onClick={()=> advanceYards2go(yards2go - 1)}>To Go -</button>
-            <button className="homeButtons__touchdown" onClick={()=> advanceYards2go(yards2go + 1)}>To Go +</button>
-            {/* <p> 2 Go</p> */}
-            
-
-
-          
-          
-          </div> 
+        <div>
+          <button className="allButtons"onClick={handleAdvanceDown}>Advance Down</button>
+          <button className="allButtons"onClick={handleAdvanceQuarter}>Advance Quarter</button>   
+        </div>
+        <div>    
+          <button className="allButtons" onClick={handleAdd2go}>+ Yards To Go +</button>
+          <button className="allButtons" onClick={handleSub2go}>- Yards To Go -</button>
+         </div>
+         <div> 
+          <button className="allButtons" onClick={handleAwayTouchDown}>Away Touchdown</button>
+          <button className="allButtons" onClick={handleAwayFieldGoal}>Away Field Goal</button>
+         </div> 
       </section>
     </div>
   );
