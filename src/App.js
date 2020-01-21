@@ -22,14 +22,16 @@ function App() {
   const handleAdvanceDown = () => {
     if(currentDown === 4){
       setAdvanceDown(currentDown - currentDown + 1)
-    } else {setAdvanceDown(currentDown + 1)}
+    } 
+     else 
+      {setAdvanceDown(currentDown + 1)}
   };
 
   const handleAdvanceQuarter = () => {
     if(currentQuarter === 4){
       setAdvanceQuarter(currentQuarter - currentQuarter + 1)
-    } 
-    else 
+    }    
+     else 
       {setAdvanceQuarter(currentQuarter + 1)}
 
   }
