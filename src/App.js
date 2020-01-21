@@ -21,7 +21,7 @@ function App() {
 
   const handleAdvanceDown = () => {
     if(currentDown === 4){
-      setAdvanceDown(currentDown - currentDown + 1)
+      setAdvanceDown(currentDown - 3)
     } 
      else 
       {setAdvanceDown(currentDown + 1)}
@@ -29,7 +29,7 @@ function App() {
 
   const handleAdvanceQuarter = () => {
     if(currentQuarter === 4){
-      setAdvanceQuarter(currentQuarter - currentQuarter + 1)
+      setAdvanceQuarter(currentQuarter - 3)
     }    
      else 
       {setAdvanceQuarter(currentQuarter + 1)}
