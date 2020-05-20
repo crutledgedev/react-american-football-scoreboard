@@ -20,20 +20,15 @@ function App() {
   };
 
   const handleAdvanceDown = () => {
-    if (currentDown === 4) {
-      setAdvanceDown(1);
-    } else {
-      setAdvanceDown(currentDown + 1);
-    }
+    currentDown === 4 ? setAdvanceDown(1) : setAdvanceDown(currentDown + 1);
   };
 
   const handleAdvanceQuarter = () => {
-    if (currentQuarter === 4) {
-      setAdvanceQuarter(1);
-    } else {
-      setAdvanceQuarter(currentQuarter + 1);
-    }
+    currentQuarter === 4
+      ? setAdvanceQuarter(1)
+      : setAdvanceQuarter(currentQuarter + 1);
   };
+
   const handleAwayTouchDown = () => {
     setAwayCount(awayCount + 7);
   };
