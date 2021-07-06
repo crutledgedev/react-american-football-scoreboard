@@ -107,18 +107,20 @@
 }
 
 .buttons {
-  width: 50%;
+  width: 900px;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
 }
 
+.allButtons,
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
 .awayButtons__touchdown,
 .awayButtons__fieldGoal {
   margin: 1rem;
   border-radius: 4px;
+  width: 200px;
 }
 p{
   font-size: 2rem;
